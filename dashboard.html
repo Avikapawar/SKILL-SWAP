@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Dashboard | SkillSwap</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      :root {
+        --primary: #0e1d54;
+        --secondary: #597aaf;
+        --accent: #a4b4cb;
+        --bg: #ecedef;
+        --light: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg);
+        margin: 0;
+        color: var(--primary);
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: var(--primary);
+        color: white;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        flex-wrap: wrap;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      nav a:hover {
+        background-color: var(--secondary);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 1rem;
+      }
+
+      .section {
+        background: var(--light);
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        margin-bottom: 2rem;
+      }
+
+      .section h2 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .section ul {
+        list-style: none;
+        padding-left: 1rem;
+        margin: 0;
+      }
+
+      .section li {
+        margin: 0.5rem 0;
+        color: var(--secondary);
+      }
+
+      .add-btn,
+      .edit-profile-btn,
+      .modal-content button {
+        background-color: var(--secondary);
+        border: none;
+        color: white;
+        padding: 8px 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+      }
+
+      .add-btn:hover,
+      .edit-profile-btn:hover,
+      .modal-content button:hover {
+        background-color: var(--primary);
+      }
+
+      .profile-box {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .profile-box img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--accent);
+      }
+
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .modal-content {
+        background-color: var(--light);
+        padding: 20px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 400px;
+      }
+
+      .modal-content input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid var(--accent);
+        border-radius: 5px;
+      }
+
+      canvas {
+        margin-top: 20px;
+        max-width: 100%;
+      }
+
+      .chart-section {
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        nav {
+          width: 100%;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+        }
+
+        .section h2 {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .profile-box {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .edit-profile-btn {
+          align-self: flex-end;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>SkillSwap</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="skills.html">Skills</a>
+        <a href="chat.html">Chat</a>
+        <a href="session.html">Sessions</a>
+        <a href="review.html">Review & Rewards</a>
+        <a href="#">Dashboard</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="section profile-box">
+        <img
+          id="profileImage"
+          src="https://randomuser.me/api/portraits/women/45.jpg"
+          alt="Profile"
+        />
+        <div class="profile-info">
+          <h3 id="profileName">Priya Sharma</h3>
+          <p id="profileBio">
+            Learning Graphic Design | Teaching Public Speaking
+          </p>
+        </div>
+        <button class="edit-profile-btn" onclick="openEditProfile()">
+          ✏ Edit
+        </button>
+      </div>
+
+      <div class="section">
+        <h2>
+          My Skills
+          <button class="add-btn" onclick="openModal('mySkills')">+ Add</button>
+        </h2>
+        <ul id="mySkillsList">
+          <li>Public Speaking</li>
+          <li>Photography</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>
+          Skills I Learned
+          <button class="add-btn" onclick="openModal('learnedSkills')">
+            + Add
+          </button>
+        </h2>
+        <ul id="learnedSkillsList">
+          <li>Graphic Design</li>
+          <li>Excel Basics</li>
+        </ul>
+      </div>
+
+      <div class="section chart-section">
+        <h2>Active Progress</h2>
+        <canvas id="progressChart" height="200"></canvas>
+      </div>
+    </div>
+
+    <!-- Skill Modal -->
+    <div class="modal" id="skillModal">
+      <div class="modal-content">
+        <h3>Add Skill</h3>
+        <input type="text" id="skillInput" placeholder="Enter skill name" />
+        <button onclick="addSkill()">Add</button>
+      </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal" id="editProfileModal">
+      <div class="modal-content">
+        <h3>Edit Profile</h3>
+        <input type="text" id="editName" placeholder="Your Name" />
+        <input type="text" id="editBio" placeholder="Your Bio" />
+        <input type="text" id="editImage" placeholder="Image URL" />
+        <button onclick="updateProfile()">Save</button>
+      </div>
+    </div>
+
+    <script>
+      let currentList = null;
+
+      function openModal(type) {
+        currentList = type;
+        document.getElementById("skillModal").style.display = "flex";
+      }
+
+      function addSkill() {
+        const skill = document.getElementById("skillInput").value.trim();
+        if (!skill) return;
+        const li = document.createElement("li");
+        li.textContent = skill;
+        document.getElementById(currentList + "List").appendChild(li);
+        document.getElementById("skillInput").value = "";
+        document.getElementById("skillModal").style.display = "none";
+      }
+
+      function openEditProfile() {
+        document.getElementById("editProfileModal").style.display = "flex";
+        document.getElementById("editName").value =
+          document.getElementById("profileName").textContent;
+        document.getElementById("editBio").value =
+          document.getElementById("profileBio").textContent;
+        document.getElementById("editImage").value =
+          document.getElementById("profileImage").src;
+      }
+
+      function updateProfile() {
+        document.getElementById("profileName").textContent =
+          document.getElementById("editName").value;
+        document.getElementById("profileBio").textContent =
+          document.getElementById("editBio").value;
+        document.getElementById("profileImage").src =
+          document.getElementById("editImage").value;
+        document.getElementById("editProfileModal").style.display = "none";
+      }
+
+      window.onclick = function (e) {
+        if (e.target.classList.contains("modal")) {
+          document.getElementById("skillModal").style.display = "none";
+          document.getElementById("editProfileModal").style.display = "none";
+        }
+      };
+
+      const ctx = document.getElementById("progressChart").getContext("2d");
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: [
+            "Public Speaking",
+            "Photography",
+            "Graphic Design",
+            "Excel Basics",
+          ],
+          datasets: [
+            {
+              label: "Progress (%)",
+              data: [90, 75, 50, 60],
+              backgroundColor: ["#0E1D54", "#597AAF", "#A4B4CB", "#ECEDEF"],
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false,
+            },
+            tooltip: {
+              mode: "index",
+              intersect: false,
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
