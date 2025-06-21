@@ -1,432 +1,475 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LoopLearn | Skill Swap Platform</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LoopLearn | Skill Swap Platform</title>
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-  <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <!-- SweetAlert2 -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- FontAwesome -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ecedef;
+        color: #1f2937;
+      }
 
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #ecedef;
-      color: #1F2937;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px;
-      background-color: #0E1D54;
-      color: white;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      transition: all 0.3s ease;
-      flex-wrap: wrap;
-    }
-
-    header.scrolled {
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      background-color: #09133d;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    nav a {
-      margin: 0 1rem;
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      background-color: #597AAF;
-      padding: 10px;
-      border-radius: 5px;
-    }
-
-    .hero {
-      color: white;
-      text-align: center;
-      padding: 4rem 2rem;
-      background: url('bg (1).png') no-repeat center center/cover;
-    }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      padding-bottom: 25%;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-    }
-
-    .hero button {
-      padding: 0.7rem 1.5rem;
-      margin: 0.5rem;
-      font-size: 1rem;
-      background-color: #0E1D54;
-      color: white;
-      border: 2px solid white;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .hero button:hover {
-      padding: 0.9rem 1.9rem;
-    }
-
-    .stories-section {
-      padding: 20px;
-      max-width: 1000px;
-      margin: 40px auto;
-      box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
-      background-color: white;
-    }
-
-    .section-title {
-      text-align: center;
-      color: #0E1D54;
-      font-size: 30px;
-      font-weight: bold;
-      margin-bottom: 40px;
-    }
-
-    .storybutton {
-      background-color: #0E1D54;
-      color: white;
-      padding: 10px;
-      margin-left: 10px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .stories-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-    }
-
-    .story-card {
-      background-color: white;
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      width: 300px;
-      padding: 25px;
-      transition: transform 0.3s ease;
-    }
-
-    .story-card:hover {
-      transform: translateY(-5px);
-      border: 2px solid #0E1D54;
-    }
-
-    .profile-img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #A4B4CB;
-    }
-
-    .user-info {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 15px;
-    }
-
-    .user-name {
-      font-weight: bold;
-      color: #0E1D54;
-    }
-
-    .user-role {
-      font-size: 13px;
-      color: #597AAF;
-    }
-
-    .user-story {
-      font-size: 15px;
-      color: #444;
-      margin-top: 10px;
-      line-height: 1.6;
-    }
-
-    .icon {
-      color: #597AAF;
-      font-size: 20px;
-      margin-right: 5px;
-    }
-
-    .sessions {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 40px;
-    }
-
-    .sessions button {
-      background-color: #A4B4CB;
-      color: #0E1D54;
-      padding: 10px 20px;
-      margin: 0 10px;
-      border: none;
-      cursor: pointer;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #597AAF;
-      color: white;
-      margin-top: 40px;
-    }
-
-    footer a {
-      color: #fff;
-      text-decoration: underline;
-    }
-
-    #helpModal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.5);
-      justify-content: center;
-      align-items: center;
-      z-index: 99999;
-    }
-
-    #helpModalContent {
-      background: white;
-      padding: 20px 30px;
-      border-radius: 10px;
-      max-width: 400px;
-      width: 90%;
-    }
-
-    #helpBtn {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      background-color: #597AAF;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      padding: 15px 18px;
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 9999;
-    }
-
-    /* Responsive styles */
-    @media (max-width: 768px) {
       header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #0e1d54;
+        color: white;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        flex-wrap: wrap;
+      }
+
+      header.scrolled {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        background-color: #09133d;
       }
 
       nav {
-        justify-content: flex-start;
-        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       nav a {
-        margin: 5px 10px;
-        padding: 8px 12px;
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 6px;
+        margin: 0 1rem;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      nav a:hover {
+        background-color: #597aaf;
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      .hero {
+        color: white;
+        text-align: center;
+        padding: 4rem 2rem;
+        background: url("bg (1).png") no-repeat center center/cover;
       }
 
       .hero h2 {
-        font-size: 1.8rem;
-        padding-bottom: 10%;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        padding-bottom: 25%;
       }
 
       .hero p {
-        font-size: 1rem;
+        font-size: 1.2rem;
       }
 
       .hero button {
-        display: block;
-        margin: 10px auto;
-        width: 80%;
+        padding: 0.7rem 1.5rem;
+        margin: 0.5rem;
+        font-size: 1rem;
+        background-color: #0e1d54;
+        color: white;
+        border: 2px solid white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .hero button:hover {
+        padding: 0.9rem 1.9rem;
+      }
+
+      .stories-section {
+        padding: 20px;
+        max-width: 1000px;
+        margin: 40px auto;
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+        background-color: white;
+      }
+
+      .section-title {
+        text-align: center;
+        color: #0e1d54;
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 40px;
+      }
+
+      .storybutton {
+        background-color: #0e1d54;
+        color: white;
+        padding: 10px;
+        margin-left: 10px;
+        border-radius: 4px;
+        cursor: pointer;
       }
 
       .stories-container {
-        flex-direction: column;
-        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
       }
 
       .story-card {
-        width: 90%;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        width: 300px;
+        padding: 25px;
+        transition: transform 0.3s ease;
       }
 
-      .sessions {
-        flex-direction: column;
-      }
-
-      .sessions button {
-        margin: 10px 0;
-        width: 80%;
-      }
-
-      footer {
-        font-size: 0.9rem;
-        padding: 1rem 0.5rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero h2 {
-        font-size: 1.5rem;
-      }
-
-      .user-info {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+      .story-card:hover {
+        transform: translateY(-5px);
+        border: 2px solid #0e1d54;
       }
 
       .profile-img {
-        margin-bottom: 10px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #a4b4cb;
+      }
+
+      .user-info {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+
+      .user-name {
+        font-weight: bold;
+        color: #0e1d54;
+      }
+
+      .user-role {
+        font-size: 13px;
+        color: #597aaf;
       }
 
       .user-story {
-        font-size: 14px;
+        font-size: 15px;
+        color: #444;
+        margin-top: 10px;
+        line-height: 1.6;
       }
-    }
-  </style>
-</head>
 
-<body>
-  <header>
-    <h1>skillswap</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="skills.html">Skills</a>
-      <a href="chat.html">Chat</a>
-      <a href="sessions.html">Sessions</a>
-      <a href="review.html">Review & Rewards</a>
-      <a href="admin.html">Admin</a>
-    </nav>
-  </header>
+      .icon {
+        color: #597aaf;
+        font-size: 20px;
+        margin-right: 5px;
+      }
 
-  <section class="hero">
-    <h2 id="hero-title">Learn, Teach, Grow Together</h2>
-    <p>Join the skill-swap community where learning never ends.</p>
-    <button onclick="location.href='login.html'">Get Started</button>
-    <button onclick="location.href='skills.html'">Explore Skills</button>
-  </section>
+      .sessions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+      }
 
-  <div class="stories-section">
-    <div class="section-title">
-      💬 Learning Stories from Users
-      <button class="storybutton" id="shareStoryBtn">Share Your Story</button>
-    </div>
+      .sessions button {
+        background-color: #a4b4cb;
+        color: #0e1d54;
+        padding: 10px 20px;
+        margin: 0 10px;
+        border: none;
+        cursor: pointer;
+      }
 
-    <div class="stories-container">
-      <!-- Example cards -->
-    </div>
-  </div>
+      footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: #597aaf;
+        color: white;
+        margin-top: 40px;
+      }
 
-  <div class="sessions">
-    <button onclick="location.href='skills.html'">Find Learning Partners</button>
-    <button onclick="location.href='sessions.html'">Browse Sessions</button>
-  </div>
+      footer a {
+        color: #fff;
+        text-decoration: underline;
+      }
 
-  <footer>
-    <p>&copy; 2025 skillswap. All rights reserved.</p>
-    <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
-  </footer>
+      #helpModal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 99999;
+      }
 
-  <!-- Help Modal -->
-  <div id="helpModal">
-    <div id="helpModalContent">
-      <h2 style="color:#0E1D54;">Need Help?</h2>
-      <p>Let us know your issue and we’ll reach out soon.</p>
-      <input id="helpName" type="text" placeholder="Your Name" style="width:100%;margin-bottom:10px;padding:8px;">
-      <input id="helpEmail" type="email" placeholder="Your Email" style="width:100%;margin-bottom:10px;padding:8px;">
-      <textarea id="helpMessage" placeholder="Describe your issue..." rows="4" style="width:100%;padding:8px;"></textarea>
-      <div style="margin-top:10px;text-align:right;">
-        <button onclick="submitHelp()" style="background-color:#0E1D54;color:white;padding:8px 16px;border:none;border-radius:5px;">Submit</button>
-        <button onclick="closeHelp()" style="margin-left:10px;">Cancel</button>
+      #helpModalContent {
+        background: white;
+        padding: 20px 30px;
+        border-radius: 10px;
+        max-width: 400px;
+        width: 90%;
+      }
+
+      #helpBtn {
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        background-color: #597aaf;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        padding: 15px 18px;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 9999;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 15px;
+        }
+
+        nav {
+          justify-content: flex-start;
+          width: 100%;
+        }
+
+        nav a {
+          margin: 5px 10px;
+          padding: 8px 12px;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 6px;
+        }
+
+        .hero h2 {
+          font-size: 1.8rem;
+          padding-bottom: 10%;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .hero button {
+          display: block;
+          margin: 10px auto;
+          width: 80%;
+        }
+
+        .stories-container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .story-card {
+          width: 90%;
+        }
+
+        .sessions {
+          flex-direction: column;
+        }
+
+        .sessions button {
+          margin: 10px 0;
+          width: 80%;
+        }
+
+        footer {
+          font-size: 0.9rem;
+          padding: 1rem 0.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero h2 {
+          font-size: 1.5rem;
+        }
+
+        .user-info {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .profile-img {
+          margin-bottom: 10px;
+        }
+
+        .user-story {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>skillswap</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="skills.html">Skills</a>
+        <a href="chat.html">Chat</a>
+        <a href="sessions.html">Sessions</a>
+        <a href="review.html">Review & Rewards</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2 id="hero-title">Learn, Teach, Grow Together</h2>
+      <p>Join the skill-swap community where learning never ends.</p>
+      <button onclick="location.href='login.html'">Get Started</button>
+      <button onclick="location.href='skills.html'">Explore Skills</button>
+    </section>
+
+    <div class="stories-section">
+      <div class="section-title">
+        💬 Learning Stories from Users
+        <button class="storybutton" id="shareStoryBtn">Share Your Story</button>
+      </div>
+
+      <div class="stories-container">
+        <!-- Example cards -->
       </div>
     </div>
-  </div>
 
-  <button id="helpBtn" title="Need Help?">?</button>
+    <div class="sessions">
+      <button onclick="location.href='skills.html'">
+        Find Learning Partners
+      </button>
+      <button onclick="location.href='sessions.html'">Browse Sessions</button>
+    </div>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
-  <script>
-    window.addEventListener("scroll", () => {
-      document.querySelector("header").classList.toggle("scrolled", window.scrollY > 50);
-      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
-    });
+    <footer>
+      <p>&copy; 2025 skillswap. All rights reserved.</p>
+      <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+    </footer>
 
-    const phrases = ["Learn Together.", "Teach Together.", "Grow Together."];
-    let current = 0;
-    const heroTitle = document.getElementById("hero-title");
-    setInterval(() => {
-      heroTitle.style.opacity = 0;
-      setTimeout(() => {
-        heroTitle.textContent = phrases[current];
-        heroTitle.style.opacity = 1;
-        current = (current + 1) % phrases.length;
-      }, 400);
-    }, 3000);
+    <!-- Help Modal -->
+    <div id="helpModal">
+      <div id="helpModalContent">
+        <h2 style="color: #0e1d54">Need Help?</h2>
+        <p>Let us know your issue and we’ll reach out soon.</p>
+        <input
+          id="helpName"
+          type="text"
+          placeholder="Your Name"
+          style="width: 100%; margin-bottom: 10px; padding: 8px"
+        />
+        <input
+          id="helpEmail"
+          type="email"
+          placeholder="Your Email"
+          style="width: 100%; margin-bottom: 10px; padding: 8px"
+        />
+        <textarea
+          id="helpMessage"
+          placeholder="Describe your issue..."
+          rows="4"
+          style="width: 100%; padding: 8px"
+        ></textarea>
+        <div style="margin-top: 10px; text-align: right">
+          <button
+            onclick="submitHelp()"
+            style="
+              background-color: #0e1d54;
+              color: white;
+              padding: 8px 16px;
+              border: none;
+              border-radius: 5px;
+            "
+          >
+            Submit
+          </button>
+          <button onclick="closeHelp()" style="margin-left: 10px">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
 
-    document.getElementById("shareStoryBtn").addEventListener("click", async () => {
-      const { value: story } = await Swal.fire({
-        title: 'Share Your Story',
-        input: 'textarea',
-        inputLabel: 'What did you learn, teach or experience?',
-        inputPlaceholder: 'Type your story here...',
-        showCancelButton: true
+    <button id="helpBtn" title="Need Help?">?</button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      window.addEventListener("scroll", () => {
+        document
+          .querySelector("header")
+          .classList.toggle("scrolled", window.scrollY > 50);
+        scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
       });
-      if (story) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Thank you!',
-          text: 'Your story has been added (locally for now).',
-          toast: true,
-          position: 'top-end',
-          timer: 2000,
-          showConfirmButton: false
-        });
-        const newStory = `
+
+      const phrases = ["Learn Together.", "Teach Together.", "Grow Together."];
+      let current = 0;
+      const heroTitle = document.getElementById("hero-title");
+      setInterval(() => {
+        heroTitle.style.opacity = 0;
+        setTimeout(() => {
+          heroTitle.textContent = phrases[current];
+          heroTitle.style.opacity = 1;
+          current = (current + 1) % phrases.length;
+        }, 400);
+      }, 3000);
+
+      document
+        .getElementById("shareStoryBtn")
+        .addEventListener("click", async () => {
+          const { value: story } = await Swal.fire({
+            title: "Share Your Story",
+            input: "textarea",
+            inputLabel: "What did you learn, teach or experience?",
+            inputPlaceholder: "Type your story here...",
+            showCancelButton: true,
+          });
+          if (story) {
+            Swal.fire({
+              icon: "success",
+              title: "Thank you!",
+              text: "Your story has been added (locally for now).",
+              toast: true,
+              position: "top-end",
+              timer: 2000,
+              showConfirmButton: false,
+            });
+            const newStory = `
         <div class="story-card" data-aos="fade-up">
           <div class="user-info">
-            <img src="https://randomuser.me/api/portraits/lego/${Math.floor(Math.random() * 10)}.jpg" class="profile-img">
+            <img src="https://randomuser.me/api/portraits/lego/${Math.floor(
+              Math.random() * 10
+            )}.jpg" class="profile-img">
             <div>
               <div class="user-name">You</div>
               <div class="user-role"><i class="fas fa-star icon"></i>New Contributor</div>
@@ -434,48 +477,61 @@
           </div>
           <div class="user-story">${story}</div>
         </div>`;
-        document.querySelector('.stories-container').insertAdjacentHTML('afterbegin', newStory);
-        AOS.refresh();
-      }
-    });
+            document
+              .querySelector(".stories-container")
+              .insertAdjacentHTML("afterbegin", newStory);
+            AOS.refresh();
+          }
+        });
 
-    const scrollBtn = document.createElement("button");
-    scrollBtn.innerHTML = "↑";
-    scrollBtn.style.cssText = `
+      const scrollBtn = document.createElement("button");
+      scrollBtn.innerHTML = "↑";
+      scrollBtn.style.cssText = `
       position: fixed; bottom: 30px; right: 20px;
       background-color: #0E1D54; color: white;
       border: none; border-radius: 50%; padding: 12px;
       font-size: 18px; cursor: pointer; display: none; z-index: 9999;
     `;
-    scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    document.body.appendChild(scrollBtn);
+      scrollBtn.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      );
+      document.body.appendChild(scrollBtn);
 
-    // Help modal logic
-    const helpModal = document.getElementById('helpModal');
-    const helpBtn = document.getElementById('helpBtn');
+      // Help modal logic
+      const helpModal = document.getElementById("helpModal");
+      const helpBtn = document.getElementById("helpBtn");
 
-    helpBtn.addEventListener('click', () => helpModal.style.display = 'flex');
-    function closeHelp() { helpModal.style.display = 'none'; }
-    function submitHelp() {
-      const name = document.getElementById('helpName').value.trim();
-      const email = document.getElementById('helpEmail').value.trim();
-      const message = document.getElementById('helpMessage').value.trim();
-      if (!name || !email || !message) {
-        Swal.fire({ icon: 'warning', title: 'Incomplete', text: 'Please fill out all fields.' });
-        return;
+      helpBtn.addEventListener(
+        "click",
+        () => (helpModal.style.display = "flex")
+      );
+      function closeHelp() {
+        helpModal.style.display = "none";
       }
-      closeHelp();
-      Swal.fire({
-        icon: 'success',
-        title: 'Help request sent!',
-        text: 'We’ll get back to you shortly.',
-        toast: true,
-        position: 'top-end',
-        timer: 3000,
-        showConfirmButton: false
-      });
-      console.log({ name, email, message });
-    }
-  </script>
-</body>
+      function submitHelp() {
+        const name = document.getElementById("helpName").value.trim();
+        const email = document.getElementById("helpEmail").value.trim();
+        const message = document.getElementById("helpMessage").value.trim();
+        if (!name || !email || !message) {
+          Swal.fire({
+            icon: "warning",
+            title: "Incomplete",
+            text: "Please fill out all fields.",
+          });
+          return;
+        }
+        closeHelp();
+        Swal.fire({
+          icon: "success",
+          title: "Help request sent!",
+          text: "We’ll get back to you shortly.",
+          toast: true,
+          position: "top-end",
+          timer: 3000,
+          showConfirmButton: false,
+        });
+        console.log({ name, email, message });
+      }
+    </script>
+  </body>
 </html>
