@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SkillSwap Scheduler</title>
+    <link rel="stylesheet" href="nav.css" />
     <style>
       :root {
         --dark-blue: #0e1d54;
@@ -21,50 +22,14 @@
         color: var(--dark-blue);
       }
 
-      header {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px;
-        background-color: var(--dark-blue);
-        color: white;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        transition: all 0.3s ease;
-        flex-wrap: wrap;
-      }
-
-      header.scrolled {
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        background-color: #09133d;
-      }
-
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      nav a {
-        margin: 5px 10px;
-        color: white;
-        text-decoration: none;
-        font-weight: 500;
-      }
-
-      nav a:hover {
-        background-color: var(--medium-blue);
-        padding: 10px;
-        border-radius: 5px;
-      }
-
       h1,
       p {
         text-align: center;
         margin-top: 40px;
       }
-
+      header h1 {
+        margin-top: 16px;
+      }
       .container {
         padding: 20px;
         max-width: 1000px;
@@ -169,17 +134,7 @@
       }
 
       @media (max-width: 768px) {
-        header {
-          flex-direction: column;
-          text-align: center;
-        }
-
-        nav {
-          flex-direction: column;
-        }
-
         .stats {
-          flex-direction: column;
           align-items: center;
         }
 
@@ -192,14 +147,14 @@
   </head>
   <body>
     <header>
-      <h1>skillswap</h1>
+      <h1>SkillSwap</h1>
       <nav>
         <a href="index.html">Home</a>
         <a href="skills.html">Skills</a>
         <a href="chat.html">Chat</a>
         <a href="#">Sessions</a>
         <a href="review.html">Review & Rewards</a>
-        <a href="dashboard.html">dashboard</a>
+        <a href="dashboard.html">Dashboard</a>
       </nav>
     </header>
 
