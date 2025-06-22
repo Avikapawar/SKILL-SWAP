@@ -9,7 +9,6 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <link rel="stylesheet" href="nav.css" />
     <style>
       :root {
@@ -18,6 +17,8 @@
         --accent: #a4b4cb;
         --bg: #ecedef;
         --light: #ffffff;
+        --medium-blue: #597aaf;
+        --dark-blue: #0e1d54;
       }
 
       * {
@@ -135,6 +136,27 @@
         text-align: center;
       }
 
+      .help-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--medium-blue);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background 0.3s ease;
+        z-index: 9999;
+      }
+
+      .help-button:hover {
+        background: var(--dark-blue);
+      }
+
       @media (max-width: 768px) {
         .section h2 {
           flex-direction: column;
@@ -233,6 +255,9 @@
       </div>
     </div>
 
+    <!-- Help Button -->
+    <button class="help-button" onclick="showHelp()">?</button>
+
     <script>
       let currentList = null;
 
@@ -315,6 +340,12 @@
           },
         },
       });
+
+      function showHelp() {
+        alert(
+          "💡 Need help?\n\n• Click '+ Add' to add skills.\n• Use the ✏ button to edit your profile.\n• View your learning progress in the chart.\n• Visit the 'Sessions' page to manage session plans.\n\nStill stuck? Head to the Chat page!"
+        );
+      }
     </script>
   </body>
 </html>

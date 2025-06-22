@@ -12,6 +12,8 @@
         --primary-light: #a4b4cb;
         --light-bg: #ecedef;
         --card-bg: #e8eaed;
+        --medium-blue: #597aaf;
+        --dark-blue: #0e1d54;
       }
 
       * {
@@ -25,9 +27,11 @@
         background-color: var(--light-bg);
         color: var(--primary-dark);
       }
+
       header {
         padding: 20px;
       }
+
       .container {
         max-width: 1200px;
         margin: auto;
@@ -221,6 +225,28 @@
           width: 100%;
         }
       }
+
+      /* Help Button */
+      .help-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--medium-blue);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background 0.3s ease;
+        z-index: 1001;
+      }
+
+      .help-button:hover {
+        background: var(--dark-blue);
+      }
     </style>
   </head>
 
@@ -321,12 +347,8 @@
           <div class="reward-item">Level: Intermediate</div>
           <div class="reward-item">Badges: 🏅 Expert Reviewer</div>
           <h3 style="margin-top: 1rem">Next Badge Progress</h3>
-          <progress
-            value="70"
-            max="100"
-            style="width: 100%; height: 20px"
-          ></progress>
-          <small> 70% towards 🥇 Top Contributor Badge</small>
+          <progress value="70" max="100" style="width: 100%; height: 20px"></progress>
+          <small>70% towards 🥇 Top Contributor Badge</small>
         </div>
       </div>
 
@@ -343,33 +365,23 @@
 
     <!-- Review Modal -->
     <div class="modal" id="reviewModal">
-      <div
-        class="modal-content"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modalTitle"
-      >
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <button class="close-btn" onclick="closeModal()">×</button>
         <h3 id="modalTitle">Leave a Review</h3>
         <div id="stars" style="margin: 1rem 0">
           <span class="star" onclick="rate(1)" aria-label="Rate 1 star">★</span>
-          <span class="star" onclick="rate(2)" aria-label="Rate 2 stars"
-            >★</span
-          >
-          <span class="star" onclick="rate(3)" aria-label="Rate 3 stars"
-            >★</span
-          >
-          <span class="star" onclick="rate(4)" aria-label="Rate 4 stars"
-            >★</span
-          >
-          <span class="star" onclick="rate(5)" aria-label="Rate 5 stars"
-            >★</span
-          >
+          <span class="star" onclick="rate(2)" aria-label="Rate 2 stars">★</span>
+          <span class="star" onclick="rate(3)" aria-label="Rate 3 stars">★</span>
+          <span class="star" onclick="rate(4)" aria-label="Rate 4 stars">★</span>
+          <span class="star" onclick="rate(5)" aria-label="Rate 5 stars">★</span>
         </div>
         <textarea placeholder="Write your review..."></textarea>
         <button onclick="submitReview()">Submit</button>
       </div>
     </div>
+
+    <!-- Help Button -->
+    <button class="help-button" onclick="showHelp()">?</button>
 
     <script>
       let currentRating = 0;
@@ -386,7 +398,7 @@
       function openModalWithStars(title) {
         openModal(title);
         currentRating = 0;
-        rate(0); // Reset stars
+        rate(0);
         document.querySelector(".modal-content textarea").value = "";
       }
 
@@ -399,9 +411,7 @@
       }
 
       function submitReview() {
-        const text = document
-          .querySelector(".modal-content textarea")
-          .value.trim();
+        const text = document.querySelector(".modal-content textarea").value.trim();
         if (currentRating === 0 || !text) {
           alert("Please provide a rating and a review before submitting.");
           return;
@@ -419,16 +429,8 @@
         document.getElementById("activityList").prepend(li);
       }
 
-      function logout() {
-        localStorage.clear();
-        alert("You have been logged out.");
-        window.location.href = "index.html";
-      }
-
       function filterReviews() {
-        const input = document
-          .getElementById("searchInput")
-          .value.toLowerCase();
+        const input = document.getElementById("searchInput").value.toLowerCase();
         const reviews = document.querySelectorAll("#reviewList .review-item");
         reviews.forEach((item) => {
           const text = item.innerText.toLowerCase();
@@ -439,6 +441,12 @@
       window.onclick = function (event) {
         if (event.target.classList.contains("modal")) closeModal();
       };
+
+      function showHelp() {
+        alert(
+          "💡 Need help?\n\n• Click 'Give Review' to rate others.\n• Search reviews using the search box.\n• Rewards show your current stats.\n• Recent Activity shows your latest actions.\n\nFor more support, visit the Dashboard or Chat page."
+        );
+      }
     </script>
   </body>
 </html>

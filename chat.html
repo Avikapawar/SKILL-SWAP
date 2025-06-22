@@ -12,6 +12,8 @@
         --blue-light: #a4b4cb;
         --gray-light: #ecedef;
         --gray-lighter: #e8eaed;
+        --medium-blue: #597aaf;
+        --dark-blue: #0e1d54;
       }
 
       * {
@@ -281,6 +283,27 @@
           padding: 0.6rem 0;
         }
       }
+
+      /* Help Button */
+      .help-button {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        background: var(--medium-blue);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background 0.3s ease;
+      }
+
+      .help-button:hover {
+        background: var(--dark-blue);
+      }
     </style>
   </head>
   <body>
@@ -321,6 +344,9 @@
         </div>
       </div>
     </div>
+
+    <!-- Help Button -->
+    <button class="help-button" onclick="showHelp()">?</button>
 
     <script>
       const conversations = {};
@@ -397,13 +423,19 @@
             msg.sender === "me" ? "ME" : "AI"
           );
           msgDiv.innerHTML = `
-          ${msg.text}
-          <div class="timestamp">${msg.time}</div>
-        `;
+            ${msg.text}
+            <div class="timestamp">${msg.time}</div>
+          `;
           chatBox.appendChild(msgDiv);
         });
 
         chatBox.scrollTop = chatBox.scrollHeight;
+      }
+
+      function showHelp() {
+        alert(
+          "💡 Need help?\n\n• Use '+ New Conversation' to begin.\n• Type and send messages using Enter or the button.\n• Messages will simulate replies.\n• Use navigation links above to explore more pages."
+        );
       }
 
       document
