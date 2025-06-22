@@ -19,12 +19,19 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="nav.css" />
   <style>
+    html,
     body {
-      font-family: "Poppins", sans-serif;
+      height: 100%;
       margin: 0;
-      padding: 0;
+      font-family: "Poppins", sans-serif;
       background-color: #ecedef;
       color: #1f2937;
+    }
+
+    .page-container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     .hero {
@@ -164,7 +171,7 @@
       padding: 1rem;
       background-color: #597aaf;
       color: white;
-      margin-top: 40px;
+      margin-top: auto;
     }
 
     footer a {
@@ -271,227 +278,198 @@
 </head>
 
 <body>
-  <header>
-    <h1>SkillSwap</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="skills.html">Skills</a>
-      <a href="chat.html">Chat</a>
-      <a href="session.html">Sessions</a>
-      <a href="review.html">Review & Rewards</a>
-      <a href="dashboard.html">Dashboard</a>
-    </nav>
-  </header>
+  <div class="page-container">
+    <header>
+      <h1>SkillSwap</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="skills.html">Skills</a>
+        <a href="chat.html">Chat</a>
+        <a href="session.html">Sessions</a>
+        <a href="review.html">Review & Rewards</a>
+        <a href="dashboard.html">Dashboard</a>
+      </nav>
+    </header>
 
-  <section class="hero">
-    <h2 id="hero-title">Learn, Teach, Grow Together</h2>
-    <p>Join the skill-swap community where learning never ends.</p>
-    <button onclick="location.href='signup.html'">Get Started</button>
-    <button onclick="location.href='skills.html'">Explore Skills</button>
-  </section>
+    <section class="hero">
+      <h2 id="hero-title">Learn, Teach, Grow Together</h2>
+      <p>Join the skill-swap community where learning never ends.</p>
+      <button onclick="location.href='signup.html'">Get Started</button>
+      <button onclick="location.href='skills.html'">Explore Skills</button>
+    </section>
 
-  <div class="stories-section">
-    <div class="section-title">
-      💬 Learning Stories from Users.
-      <button class="storybutton" id="shareStoryBtn">Share Your Story</button>
-    </div>
-
-    <div class="stories-container">
-      <div class="story-card" data-aos="fade-up">
-        <div class="user-info">
-          <img src="https://randomuser.me/api/portraits/women/44.jpg" class="profile-img" />
-          <div>
-            <div class="user-name">Sneha Rathi</div>
-            <div class="user-role"><i class="fas fa-paint-brush icon"></i>Graphic Learner</div>
-          </div>
-        </div>
-        <div class="user-story">“I swapped design lessons for JavaScript basics! Skillswap made it easy and fun to share
-          skills.”</div>
+    <div class="stories-section">
+      <div class="section-title">
+        💬 Learning Stories from Users.
+        <button class="storybutton" id="shareStoryBtn">Share Your Story</button>
       </div>
 
-      <div class="story-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="user-info">
-          <img src="https://randomuser.me/api/portraits/men/34.jpg" class="profile-img" />
-          <div>
-            <div class="user-name">Aarav Patel</div>
-            <div class="user-role"><i class="fas fa-microphone icon"></i>Speaker</div>
+      <div class="stories-container">
+        <div class="story-card" data-aos="fade-up">
+          <div class="user-info">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="profile-img" />
+            <div>
+              <div class="user-name">Sneha Rathi</div>
+              <div class="user-role"><i class="fas fa-paint-brush icon"></i>Graphic Learner</div>
+            </div>
           </div>
+          <div class="user-story">“I swapped design lessons for JavaScript basics! Skillswap made it easy and fun to share skills.”</div>
         </div>
-        <div class="user-story">“Skillswap helped me gain confidence in public speaking. It’s not just about learning
-          it’s a journey!”</div>
+
+        <div class="story-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="user-info">
+            <img src="https://randomuser.me/api/portraits/men/34.jpg" class="profile-img" />
+            <div>
+              <div class="user-name">Aarav Patel</div>
+              <div class="user-role"><i class="fas fa-microphone icon"></i>Speaker</div>
+            </div>
+          </div>
+          <div class="user-story">“Skillswap helped me gain confidence in public speaking. It’s not just about learning it’s a journey!”</div>
+        </div>
+
+        <div class="story-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="user-info">
+            <img src="https://randomuser.me/api/portraits/men/55.jpg" class="profile-img" />
+            <div>
+              <div class="user-name">Leo Jack</div>
+              <div class="user-role"><i class="fas fa-camera icon"></i>Photographer</div>
+            </div>
+          </div>
+          <div class="user-story">“I taught basic photography and learned Excel tips in return. The platform builds meaningful exchanges.”</div>
+        </div>
       </div>
 
-      <div class="story-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="user-info">
-          <img src="https://randomuser.me/api/portraits/men/55.jpg" class="profile-img" />
-          <div>
-            <div class="user-name">Leo Jack</div>
-            <div class="user-role"><i class="fas fa-camera icon"></i>Photographer</div>
-          </div>
-        </div>
-        <div class="user-story">“I taught basic photography and learned Excel tips in return. The platform builds
-          meaningful exchanges.”</div>
+      <div class="sessions">
+        <button onclick="location.href='skills.html'">Find Learning Partners</button>
+        <button onclick="location.href='session.html'">Browse Sessions</button>
       </div>
-    </div>
-
-
-
-    <div class="sessions">
-      <button onclick="location.href='skills.html'">
-        Find Learning Partners
-      </button>
-      <button onclick="location.href='session.html'">Browse Sessions</button>
     </div>
 
     <footer>
       <p>&copy; 2025 skillswap. All rights reserved.</p>
       <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
     </footer>
+  </div>
 
-    <!-- Help Modal -->
-    <div id="helpModal">
-      <div id="helpModalContent">
-        <h2 style="color: #0e1d54">Need Help?</h2>
-        <p>Let us know your issue and we’ll reach out soon.</p>
-        <input id="helpName" type="text" placeholder="Your Name"
-          style="width: 100%; margin-bottom: 10px; padding: 8px" />
-        <input id="helpEmail" type="email" placeholder="Your Email"
-          style="width: 100%; margin-bottom: 10px; padding: 8px" />
-        <textarea id="helpMessage" placeholder="Describe your issue..." rows="4"
-          style="width: 100%; padding: 8px"></textarea>
-        <div style="margin-top: 10px; text-align: right">
-          <button onclick="submitHelp()" style="
-              background-color: #0e1d54;
-              color: white;
-              padding: 8px 16px;
-              border: none;
-              border-radius: 5px;
-            ">
-            Submit
-          </button>
-          <button onclick="closeHelp()" style="margin-left: 10px">
-            Cancel
-          </button>
-        </div>
+  <!-- Help Modal -->
+  <div id="helpModal">
+    <div id="helpModalContent">
+      <h2 style="color: #0e1d54">Need Help?</h2>
+      <p>Let us know your issue and we’ll reach out soon.</p>
+      <input id="helpName" type="text" placeholder="Your Name" style="width: 100%; margin-bottom: 10px; padding: 8px" />
+      <input id="helpEmail" type="email" placeholder="Your Email" style="width: 100%; margin-bottom: 10px; padding: 8px" />
+      <textarea id="helpMessage" placeholder="Describe your issue..." rows="4" style="width: 100%; padding: 8px"></textarea>
+      <div style="margin-top: 10px; text-align: right">
+        <button onclick="submitHelp()" style="background-color: #0e1d54; color: white; padding: 8px 16px; border: none; border-radius: 5px;">Submit</button>
+        <button onclick="closeHelp()" style="margin-left: 10px">Cancel</button>
       </div>
     </div>
+  </div>
 
-    <button id="helpBtn" title="Need Help?">?</button>
+  <button id="helpBtn" title="Need Help?">?</button>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
-    <script>
-      window.addEventListener("scroll", () => {
-        document
-          .querySelector("header")
-          .classList.toggle("scrolled", window.scrollY > 50);
-        scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    window.addEventListener("scroll", () => {
+      document.querySelector("header").classList.toggle("scrolled", window.scrollY > 50);
+      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+
+    const phrases = ["Learn Together.", "Teach Together.", "Grow Together."];
+    let current = 0;
+    const heroTitle = document.getElementById("hero-title");
+    setInterval(() => {
+      heroTitle.style.opacity = 0;
+      setTimeout(() => {
+        heroTitle.textContent = phrases[current];
+        heroTitle.style.opacity = 1;
+        current = (current + 1) % phrases.length;
+      }, 400);
+    }, 3000);
+
+    document.getElementById("shareStoryBtn").addEventListener("click", async () => {
+      const { value: story } = await Swal.fire({
+        title: "Share Your Story",
+        input: "textarea",
+        inputLabel: "What did you learn, teach or experience?",
+        inputPlaceholder: "Type your story here...",
+        showCancelButton: true,
       });
-
-      const phrases = ["Learn Together.", "Teach Together.", "Grow Together."];
-      let current = 0;
-      const heroTitle = document.getElementById("hero-title");
-      setInterval(() => {
-        heroTitle.style.opacity = 0;
-        setTimeout(() => {
-          heroTitle.textContent = phrases[current];
-          heroTitle.style.opacity = 1;
-          current = (current + 1) % phrases.length;
-        }, 400);
-      }, 3000);
-
-      document
-        .getElementById("shareStoryBtn")
-        .addEventListener("click", async () => {
-          const { value: story } = await Swal.fire({
-            title: "Share Your Story",
-            input: "textarea",
-            inputLabel: "What did you learn, teach or experience?",
-            inputPlaceholder: "Type your story here...",
-            showCancelButton: true,
-          });
-          if (story) {
-            Swal.fire({
-              icon: "success",
-              title: "Thank you!",
-              text: "Your story has been added (locally for now).",
-              toast: true,
-              position: "top-end",
-              timer: 2000,
-              showConfirmButton: false,
-            });
-            const newStory = `
-        <div class="story-card" data-aos="fade-up">
-          <div class="user-info">
-            <img src="https://randomuser.me/api/portraits/lego/${Math.floor(
-              Math.random() * 10
-            )}.jpg" class="profile-img">
-            <div>
-              <div class="user-name">You</div>
-              <div class="user-role"><i class="fas fa-star icon"></i>New Contributor</div>
-            </div>
-          </div>
-          <div class="user-story">${story}</div>
-        </div>`;
-            document
-              .querySelector(".stories-container")
-              .insertAdjacentHTML("afterbegin", newStory);
-            AOS.refresh();
-          }
+      if (story) {
+        Swal.fire({
+          icon: "success",
+          title: "Thank you!",
+          text: "Your story has been added (locally for now).",
+          toast: true,
+          position: "top-end",
+          timer: 2000,
+          showConfirmButton: false,
         });
+        const newStory = `
+          <div class="story-card" data-aos="fade-up">
+            <div class="user-info">
+              <img src="https://randomuser.me/api/portraits/lego/${Math.floor(Math.random() * 10)}.jpg" class="profile-img">
+              <div>
+                <div class="user-name">You</div>
+                <div class="user-role"><i class="fas fa-star icon"></i>New Contributor</div>
+              </div>
+            </div>
+            <div class="user-story">${story}</div>
+          </div>`;
+        document.querySelector(".stories-container").insertAdjacentHTML("afterbegin", newStory);
+        AOS.refresh();
+      }
+    });
 
-      const scrollBtn = document.createElement("button");
-      scrollBtn.innerHTML = "↑";
-      scrollBtn.style.cssText = `
+    const scrollBtn = document.createElement("button");
+    scrollBtn.innerHTML = "↑";
+    scrollBtn.style.cssText = `
       position: fixed; bottom: 30px; right: 20px;
       background-color: #0E1D54; color: white;
       border: none; border-radius: 50%; padding: 12px;
       font-size: 18px; cursor: pointer; display: none; z-index: 9999;
     `;
-      scrollBtn.addEventListener("click", () =>
-        window.scrollTo({ top: 0, behavior: "smooth" })
-      );
-      document.body.appendChild(scrollBtn);
+    scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    document.body.appendChild(scrollBtn);
 
-      // Help modal logic
-      const helpModal = document.getElementById("helpModal");
-      const helpBtn = document.getElementById("helpBtn");
+    // Help modal logic
+    const helpModal = document.getElementById("helpModal");
+    const helpBtn = document.getElementById("helpBtn");
 
-      helpBtn.addEventListener(
-        "click",
-        () => (helpModal.style.display = "flex")
-      );
-      function closeHelp() {
-        helpModal.style.display = "none";
-      }
-      function submitHelp() {
-        const name = document.getElementById("helpName").value.trim();
-        const email = document.getElementById("helpEmail").value.trim();
-        const message = document.getElementById("helpMessage").value.trim();
-        if (!name || !email || !message) {
-          Swal.fire({
-            icon: "warning",
-            title: "Incomplete",
-            text: "Please fill out all fields.",
-          });
-          return;
-        }
-        closeHelp();
+    helpBtn.addEventListener("click", () => (helpModal.style.display = "flex"));
+
+    function closeHelp() {
+      helpModal.style.display = "none";
+    }
+
+    function submitHelp() {
+      const name = document.getElementById("helpName").value.trim();
+      const email = document.getElementById("helpEmail").value.trim();
+      const message = document.getElementById("helpMessage").value.trim();
+      if (!name || !email || !message) {
         Swal.fire({
-          icon: "success",
-          title: "Help request sent!",
-          text: "We’ll get back to you shortly.",
-          toast: true,
-          position: "top-end",
-          timer: 3000,
-          showConfirmButton: false,
+          icon: "warning",
+          title: "Incomplete",
+          text: "Please fill out all fields.",
         });
-        console.log({ name, email, message });
+        return;
       }
-    </script>
+      closeHelp();
+      Swal.fire({
+        icon: "success",
+        title: "Help request sent!",
+        text: "We’ll get back to you shortly.",
+        toast: true,
+        position: "top-end",
+        timer: 3000,
+        showConfirmButton: false,
+      });
+      console.log({ name, email, message });
+    }
+  </script>
 </body>
 
 </html>
