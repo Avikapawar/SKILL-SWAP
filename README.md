@@ -35,20 +35,23 @@ Skill-Swap is a web-based collaborative learning platform where students can **t
 ---
 
 ## 📁 File Structure
+
+```
 SKILL-SWAP/
 │
-├── index.html # Homepage 
-├── chat.html # Chatbox
-├── dashboard.html # User dashboard
-├── nav.css # Navigation styles
-├── nav.js # Navigation JavaScript
-├── review.html # Review page
-├── session.html # Session page
-├── signup.html # User Sign-up
-├── skills.html # Skill Section
-├── script.js # Main JavaScript logic
-├── bg.png # Background image
-└── /backend # (Optional future backend)
+├── index.html         # Homepage
+├── chat.html          # Chatbox
+├── dashboard.html     # User dashboard
+├── nav.css            # Navigation styles
+├── nav.js             # Navigation JavaScript
+├── review.html        # Review page
+├── session.html       # Session page
+├── signup.html        # User Sign-up
+├── skills.html        # Skill Section
+├── script.js          # Main JavaScript logic
+├── bg.png             # Background image
+└── /backend           # (Optional future backend)
+```
 
 ---
 
