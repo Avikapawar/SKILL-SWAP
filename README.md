@@ -18,7 +18,7 @@ Skill-Swap is a web-based collaborative learning platform where students can **t
 
 ## 🖼️ Screenshots
 
-![Skill Swap Screenshot](./screenshots/homepage.png) <!-- Add screenshot files if needed -->
+![Skill Swap Screenshot](bg.png) <!-- Add screenshot files if needed -->
 
 ---
 
@@ -26,7 +26,7 @@ Skill-Swap is a web-based collaborative learning platform where students can **t
 
 | Frontend | Backend | Database |
 |----------|---------|----------|
-| HTML, CSS, JavaScript | Node.js, Express.js | MongoDB (Planned) |
+| HTML, CSS, JavaScript | Node.js, Express.js (Future Plan)| MongoDB (Future Planned) |
 
 - Responsive design using **pure CSS**
 - Uses **Vanilla JavaScript** (no frameworks)
@@ -37,7 +37,7 @@ Skill-Swap is a web-based collaborative learning platform where students can **t
 ## 📁 File Structure
 SKILL-SWAP/
 │
-├── index.html # Homepage
+├── index.html # Homepage 
 ├── chat.html # Chatbox
 ├── dashboard.html # User dashboard
 ├── nav.css # Navigation styles
@@ -61,6 +61,7 @@ SKILL-SWAP/
 - 🗣️ Multilingual Support
 - 🔐 User Auth & Dashboard (Teach/Learn History)
 - 📲 Mobile-Optimized Layout
+- 🗣️ BackEnd All Function
 
 ---
 
@@ -68,11 +69,11 @@ SKILL-SWAP/
 
 | Name | Role | Skills |
 |------|------|--------|
-| **Ajinkya (Ajju)** | Full Stack Dev | Node.js, MySQL, Auth, Mail |
+| **Ajinkya** | Full Stack Dev | Node.js, MySQL, Auth, Mail |
 | **Sam** | Frontend & Demo | HTML, CSS, JS, Python |
 | **Kartik** | Backend Dev | HTML, CSS, JS, Python |
 | **Avika** | UI/UX Designer | HTML, CSS, JS, Figma |
-| **Tejas & Swaraj** | PPT & Visual Support | HTML, CSS, Research |
+| **Vaiza** | PPT , Video Editing & Visual Support | HTML, CSS, Research, Video Editor  |
 
 ---
 
