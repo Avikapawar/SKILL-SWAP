@@ -22,11 +22,23 @@ Skill-Swap is a web-based collaborative learning platform where students can **t
 
 ---
 
+## 🥘 Inspiration
+
+We believe learning should be peer-powered — SkillSwap is our way of building a community of mutual growth, where every student becomes both a learner and a mentor.
+
+---
+
+## 📢 Feedback
+
+We’d love to hear your thoughts! Create an issue or fork the repo and contribute. Let’s grow this together.
+
+---
+
 ## 🛠️ Tech Stack
 
-| Frontend | Backend | Database |
-|----------|---------|----------|
-| HTML, CSS, JavaScript | Node.js, Express.js (Future Plan)| MongoDB (Future Planned) |
+| Frontend              | Backend                           | Database                 |
+| --------------------- | --------------------------------- | ------------------------ |
+| HTML, CSS, JavaScript | Node.js, Express.js (Future Plan) | MongoDB (Future Planned) |
 
 - Responsive design using **pure CSS**
 - Uses **Vanilla JavaScript** (no frameworks)
@@ -70,19 +82,21 @@ SKILL-SWAP/
 
 ## 🤝 Team SkillSwap
 
-| Name | Role | Skills |
-|------|------|--------|
-| **Ajinkya** | Full Stack Dev | Node.js, MySQL, Auth, Mail |
-| **Sam** | Frontend & Demo | HTML, CSS, JS, Python |
-| **Kartik** | Backend Dev | HTML, CSS, JS, Python |
-| **Avika** | UI/UX Designer | HTML, CSS, JS, Figma |
-| **Vaiza** | PPT , Video Editing & Visual Support | HTML, CSS, Research, Video Editor  |
+| Name        | Role                                 | Skills                            |
+| ----------- | ------------------------------------ | --------------------------------- |
+| **Ajinkya** | Full Stack Dev                       | Node.js, MySQL, Auth, Mail        |
+| **Sam**     | Frontend & Demo                      | HTML, CSS, JS, Python             |
+| **Kartik**  | Backend Dev                          | HTML, CSS, JS, Python             |
+| **Avika**   | UI/UX Designer                       | HTML, CSS, JS, Figma              |
+| **Vaiza**   | PPT , Video Editing & Visual Support | HTML, CSS, Research, Video Editor |
 
 ---
 
 ## 🏁 Getting Started
 
 Clone the repository:
+
 ```bash
 git clone https://github.com/Avikapawar/SKILL-SWAP.git
 cd SKILL-SWAP
+```
