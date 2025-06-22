@@ -176,15 +176,18 @@
   </head>
   <body>
     <header>
-      <h1>SkillSwap</h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="skills.html">Skills</a>
-        <a href="chat.html">Chat</a>
-        <a href="session.html">Sessions</a>
-        <a href="review.html">Review & Rewards</a>
-        <a href="#">Dashboard</a>
-      </nav>
+      <div class="nav-container">
+        <h1>SkillSwap</h1>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <nav id="navbar">
+          <a href="#">Home</a>
+          <a href="skills.html">Skills</a>
+          <a href="chat.html">Chat</a>
+          <a href="session.html">Sessions</a>
+          <a href="review.html">Review & Rewards</a>
+          <a href="dashboard.html">Dashboard</a>
+        </nav>
+      </div>
     </header>
 
     <div class="container">
@@ -257,7 +260,7 @@
 
     <!-- Help Button -->
     <button class="help-button" onclick="showHelp()">?</button>
-
+    <script src="nav.js"></script>
     <script>
       let currentList = null;
 

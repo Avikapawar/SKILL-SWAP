@@ -252,15 +252,18 @@
 
   <body>
     <header>
-      <h1>SkillSwap</h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="skills.html">Skills</a>
-        <a href="chat.html">Chat</a>
-        <a href="session.html">Sessions</a>
-        <a href="#">Review & Rewards</a>
-        <a href="dashboard.html">Dashboard</a>
-      </nav>
+      <div class="nav-container">
+        <h1>SkillSwap</h1>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <nav id="navbar">
+          <a href="#">Home</a>
+          <a href="skills.html">Skills</a>
+          <a href="chat.html">Chat</a>
+          <a href="session.html">Sessions</a>
+          <a href="review.html">Review & Rewards</a>
+          <a href="dashboard.html">Dashboard</a>
+        </nav>
+      </div>
     </header>
 
     <div class="container">
@@ -347,7 +350,11 @@
           <div class="reward-item">Level: Intermediate</div>
           <div class="reward-item">Badges: 🏅 Expert Reviewer</div>
           <h3 style="margin-top: 1rem">Next Badge Progress</h3>
-          <progress value="70" max="100" style="width: 100%; height: 20px"></progress>
+          <progress
+            value="70"
+            max="100"
+            style="width: 100%; height: 20px"
+          ></progress>
           <small>70% towards 🥇 Top Contributor Badge</small>
         </div>
       </div>
@@ -365,15 +372,28 @@
 
     <!-- Review Modal -->
     <div class="modal" id="reviewModal">
-      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div
+        class="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
         <button class="close-btn" onclick="closeModal()">×</button>
         <h3 id="modalTitle">Leave a Review</h3>
         <div id="stars" style="margin: 1rem 0">
           <span class="star" onclick="rate(1)" aria-label="Rate 1 star">★</span>
-          <span class="star" onclick="rate(2)" aria-label="Rate 2 stars">★</span>
-          <span class="star" onclick="rate(3)" aria-label="Rate 3 stars">★</span>
-          <span class="star" onclick="rate(4)" aria-label="Rate 4 stars">★</span>
-          <span class="star" onclick="rate(5)" aria-label="Rate 5 stars">★</span>
+          <span class="star" onclick="rate(2)" aria-label="Rate 2 stars"
+            >★</span
+          >
+          <span class="star" onclick="rate(3)" aria-label="Rate 3 stars"
+            >★</span
+          >
+          <span class="star" onclick="rate(4)" aria-label="Rate 4 stars"
+            >★</span
+          >
+          <span class="star" onclick="rate(5)" aria-label="Rate 5 stars"
+            >★</span
+          >
         </div>
         <textarea placeholder="Write your review..."></textarea>
         <button onclick="submitReview()">Submit</button>
@@ -382,7 +402,7 @@
 
     <!-- Help Button -->
     <button class="help-button" onclick="showHelp()">?</button>
-
+<script src="nav.js"></script>
     <script>
       let currentRating = 0;
 
@@ -411,7 +431,9 @@
       }
 
       function submitReview() {
-        const text = document.querySelector(".modal-content textarea").value.trim();
+        const text = document
+          .querySelector(".modal-content textarea")
+          .value.trim();
         if (currentRating === 0 || !text) {
           alert("Please provide a rating and a review before submitting.");
           return;
@@ -430,7 +452,9 @@
       }
 
       function filterReviews() {
-        const input = document.getElementById("searchInput").value.toLowerCase();
+        const input = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
         const reviews = document.querySelectorAll("#reviewList .review-item");
         reviews.forEach((item) => {
           const text = item.innerText.toLowerCase();

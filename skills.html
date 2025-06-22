@@ -158,9 +158,12 @@
           align-items: center;
         }
 
-        .form-section,
         .btn {
           width: 100%;
+        }
+        .form-section {
+          margin-left: -18px;
+          width: 95%;
         }
       }
 
@@ -188,15 +191,18 @@
   </head>
   <body>
     <header>
-      <h1>SkillSwap</h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="skills.html">Skills</a>
-        <a href="chat.html">Chat</a>
-        <a href="#">Sessions</a>
-        <a href="review.html">Review & Rewards</a>
-        <a href="dashboard.html">Dashboard</a>
-      </nav>
+      <div class="nav-container">
+        <h1>SkillSwap</h1>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <nav id="navbar">
+          <a href="#">Home</a>
+          <a href="skills.html">Skills</a>
+          <a href="chat.html">Chat</a>
+          <a href="session.html">Sessions</a>
+          <a href="review.html">Review & Rewards</a>
+          <a href="dashboard.html">Dashboard</a>
+        </nav>
+      </div>
     </header>
 
     <h1>Session Scheduler</h1>
@@ -256,7 +262,7 @@
 
     <!-- Help Button -->
     <button class="help-button" onclick="showHelp()">?</button>
-
+    <script src="nav.js"></script>
     <script>
       const form = document.getElementById("sessionForm");
       const sessionCards = document.getElementById("sessionCards");
@@ -291,7 +297,9 @@
       });
 
       function showHelp() {
-        alert("💡 Need help?\n\n• Fill out all fields to schedule a new session.\n• Choose between 'Teaching' or 'Learning'.\n• Your added sessions will appear below.\n• Stats show your activity summary.\n\nFor more support, visit the Dashboard or Chat page.");
+        alert(
+          "💡 Need help?\n\n• Fill out all fields to schedule a new session.\n• Choose between 'Teaching' or 'Learning'.\n• Your added sessions will appear below.\n• Stats show your activity summary.\n\nFor more support, visit the Dashboard or Chat page."
+        );
       }
     </script>
   </body>
