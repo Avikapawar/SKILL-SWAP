@@ -27,9 +27,11 @@
         text-align: center;
         margin-top: 40px;
       }
+
       header h1 {
         margin-top: 16px;
       }
+
       .container {
         padding: 20px;
         max-width: 1000px;
@@ -143,6 +145,27 @@
           width: 100%;
         }
       }
+
+      /* Help Button */
+      .help-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--medium-blue);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background 0.3s ease;
+      }
+
+      .help-button:hover {
+        background: var(--dark-blue);
+      }
     </style>
   </head>
   <body>
@@ -213,6 +236,9 @@
       </div>
     </div>
 
+    <!-- Help Button -->
+    <button class="help-button" onclick="showHelp()">?</button>
+
     <script>
       const form = document.getElementById("sessionForm");
       const sessionCards = document.getElementById("sessionCards");
@@ -235,16 +261,22 @@
         card.classList.add("session-card", type.toLowerCase());
 
         card.innerHTML = `
-      <h3>${title}</h3>
-      <p><strong>Date:</strong> ${date}</p>
-      <p><strong>Time:</strong> ${time}</p>
-      <p><strong>Duration:</strong> ${duration} min</p>
-      <p><strong>Type:</strong> ${type}</p>
-    `;
+          <h3>${title}</h3>
+          <p><strong>Date:</strong> ${date}</p>
+          <p><strong>Time:</strong> ${time}</p>
+          <p><strong>Duration:</strong> ${duration} min</p>
+          <p><strong>Type:</strong> ${type}</p>
+        `;
 
         sessionCards.appendChild(card);
         form.reset();
       });
+
+      function showHelp() {
+        alert(
+          "💡 Need help?\n\n• Fill out all fields to schedule a new session.\n• Choose between 'Teaching' or 'Learning'.\n• Your added sessions will appear below.\n• Stats show your activity summary.\n\nFor more support, visit the Dashboard or Chat page."
+        );
+      }
     </script>
   </body>
 </html>
