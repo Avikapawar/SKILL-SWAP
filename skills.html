@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Skill Exchange – LoopLearn</title>
+    <link rel="stylesheet" href="nav.css" />
     <style>
       html,
       body {
@@ -15,43 +16,6 @@
         background: #f0f4ff;
         color: #000;
         transition: 0.3s ease;
-      }
-
-      header {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 20px;
-        background-color: #0e1d54;
-        color: white;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        transition: all 0.3s ease;
-      }
-
-      header.scrolled {
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        background-color: #09133d;
-      }
-
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      nav a {
-        margin: 0.5rem;
-        color: white;
-        text-decoration: none;
-        font-weight: 500;
-      }
-
-      nav a:hover {
-        background-color: #597aaf;
-        padding: 10px;
-        border-radius: 5px;
       }
 
       .container {
@@ -168,15 +132,6 @@
 
       /* Responsive adjustments */
       @media (max-width: 600px) {
-        nav {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        nav a {
-          margin: 5px 0;
-        }
-
         .container {
           padding: 10px;
         }
@@ -195,14 +150,14 @@
 
   <body>
     <header>
-      <h1>skillswap</h1>
+      <h1>SkillSwap</h1>
       <nav>
         <a href="index.html">Home</a>
-        <a href="#">Skills</a>
+        <a href="skills.html">Skills</a>
         <a href="chat.html">Chat</a>
         <a href="session.html">Sessions</a>
         <a href="review.html">Review & Rewards</a>
-        <a href="dashboard.html">dashboard</a>
+        <a href="dashboard.html">Dashboard</a>
       </nav>
     </header>
 
